@@ -52,8 +52,12 @@ public class PhoneBook {
     }
 
     public String reverseLookup(String phoneNumber) {
-        return null;
-
+        for (Map.Entry<String, List<String>> entry : phonebook.entrySet()) {
+            if (entry.getValue().contains(phoneNumber)) {
+                return entry.getKey();
+            }
+        }
+        return "Invalid Phone Number";
     }
 
     public List<String> getAllContactNames() {
@@ -65,6 +69,6 @@ public class PhoneBook {
     }
 
     public Map<String, List<String>> getMap() {
-        return null;
+        return phonebook;
     }
 }
